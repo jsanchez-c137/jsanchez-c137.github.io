@@ -1,24 +1,89 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+  document.addEventListener("DOMContentLoaded", function() {
+    // Obtener todos los enlaces de navegación para dispositivos móviles
+    var mobileNavLinks = document.querySelectorAll(".nav-link");
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+    // Agregar un controlador de clic para cada enlace de dispositivos móviles
+    mobileNavLinks.forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        // Prevenir el comportamiento predeterminado del enlace
+        event.preventDefault();
 
-setupCounter(document.querySelector('#counter'))
+        // Remover la clase 'active' de todos los enlaces
+        mobileNavLinks.forEach(function(navLink) {
+          navLink.classList.remove("active");
+        });
+
+        // Agregar la clase 'active' al enlace clicado
+        link.classList.add("active");
+      });
+    });
+
+    // Obtener todos los enlaces de navegación para PC
+    var pcNavLinks = document.querySelectorAll(".pc-link");
+
+    // Agregar un controlador de clic para cada enlace de PC
+    pcNavLinks.forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        // Remover la clase 'active' de todos los enlaces de PC
+        pcNavLinks.forEach(function(pcNavLink) {
+          pcNavLink.classList.remove("active");
+        });
+
+        // Agregar la clase 'active' al enlace clicado de PC
+        link.classList.add("active");
+      });
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var menuaDiv = document.getElementById("menua");
+
+    menuaDiv.addEventListener("click", function() {
+      // Alternar la visibilidad del div "menua"
+      if (menuaDiv.style.display === "none" || menuaDiv.style.display === "") {
+        menuaDiv.style.display = "block";
+      } else {
+        menuaDiv.style.display = "none";
+      }
+    });
+
+    // Agregar un controlador de clic para cada opción dentro de "menua"
+    var menuOptions = menuaDiv.querySelectorAll("p");
+    menuOptions.forEach(function(option) {
+      option.addEventListener("click", function() {
+        // Ocultar el div "menua" al seleccionar una opción
+        menuaDiv.style.display = "none";
+      });
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var menuButton = document.getElementById("menu");
+    var menuaDiv = document.getElementById("menua");
+
+    menuButton.addEventListener("click", function() {
+      // Alternar la visibilidad del div "menua"
+      menuaDiv.style.display = menuaDiv.style.display === "none" || menuaDiv.style.display === "" ? "block" : "none";
+    });
+
+    // Agregar un controlador de clic para cada opción dentro de "menua"
+    var menuOptions = menuaDiv.querySelectorAll("p");
+    menuOptions.forEach(function(option) {
+      option.addEventListener("click", function() {
+        // Ocultar el div "menua" al seleccionar una opción
+        menuaDiv.style.display = "none";
+      });
+    });
+  });
